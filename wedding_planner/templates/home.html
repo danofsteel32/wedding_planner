@@ -1,0 +1,72 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  {% if user.is_authenticated %}
+    Hi {{ user.username }}!
+  {% endif %}
+
+  <div id="homeWho"></div>
+    <h2>WHO</h2>
+    <p>Dan Davis and Emilee Copple</p>
+
+  <div id="homeWhat">
+    <h2>WHAT</h2>
+    <p>We're getting married!</p>
+  </div>
+
+  <div id="homeDate">
+    <h2>WHEN</h2>
+    <p>Date: June 20 2020<p>
+    <p>Time: 4pm</p>
+    <span>That's only </span>
+    <span id="countdownTimer"></span>
+    <span> away!</span>
+  </div>
+
+  <div id="homeWhere">
+    <h2>WHERE</h2>
+    <a href="https://www.metroparks.net/parks-and-trails/blacklick-woods-golf-course/shelters-lodges/eagleview/">Eagleview Banquet Hall at Blacklick Woods Golf Course</a>
+    <p>Address: 7309 E Livingston Ave, Reynoldsburg, OH 43068</p>
+  </div>
+
+  <div id="homeWhy">
+    <h2>WHY</h2>
+    <p>Because we're in love!</p>
+  </div>
+</div>
+<script>
+  // Set the date we're counting down to
+  var countDownDate = new Date("Jun 20, 2020 16:00:00").getTime();
+
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+      
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+      
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+    // Output the result in an element with id="demo"
+    document.getElementById("countdownTimer").innerHTML = days + " days " + hours + " hours "
+    + minutes + " minutes and " + seconds + " seconds ";
+      
+    // If the count down is over, write some text 
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("countdownTimer").innerHTML = "ITS OVER !!";
+    }
+  }, 1000);
+</script>
+{% endblock %}

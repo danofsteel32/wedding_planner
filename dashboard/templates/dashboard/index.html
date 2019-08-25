@@ -1,0 +1,57 @@
+{# dashboard/index.html #}
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <div id="dashboardStats">
+    <h2>Stats</h2>
+    <table class="dashTable">
+      <thead>
+        <tr>
+          <th>Total Invitations</th>
+          <th>Sent Invitations</th>
+          <th>Total RSVP</th>
+          <th>Total Guests</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ total_invitations }}</td>
+          <td>{{ sent_invitations }}</td>
+          <td>{{ total_rsvp }}</td>
+          <td>{{ total_guests }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="dashboardPartyList">
+    <div id="PartyTable">
+      <h2>Invitations</h2>
+      <button type="button" class="btn" onclick="location.href='{% url 'dashboard:addnew' %}'">
+        Add New Invitation
+      </button>  
+      <table class="dashTable">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Address</th>
+            <th>Phone #</th>
+            <th>Sent</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for p in party_list %}
+          <tr onclick="location.href='{% url 'dashboard:details' p.id %}'">
+            <td>{{ p.description }}</td>
+            <td>{{ p.street }} {{ p.city }} {{ p.state }} {{ p.zip_code }}</td>
+            <td>{{ p.phone_number }}</td>
+            <td>{{ p.sent }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

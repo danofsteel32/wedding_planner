@@ -1,0 +1,115 @@
+a {
+  color: #456f93;
+}
+body {
+  margin: 0 auto;
+  background-color: #f0f4f8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+h2 {
+  color: #203344;
+}
+input[type=text] {
+  width: 90%;
+  margin: 8px 0;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: 1px solid #203344;
+  border-radius: 4px;
+}
+input[type=number] {
+  margin: 8px 0;
+  font-size: 16px;
+  padding: 12px 20px;
+  border: 1px solid #203344;
+  border-radius: 4px;
+}
+input[type=checkbox] {
+  margin: 8px 12px;
+  padding: 12px 20px;
+  border: 1px solid #203344;
+  border-radius: 4px;
+}
+table.dashTable {
+  border-collapse: collapse;
+  color: #203344;
+  width: 100%;
+  text-align: center;
+}
+table.dashTable td, table.dashTable th {
+  border: 1px solid #203344;
+  padding: 8px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+table.dashTable tr {
+  background-color: white;
+}
+
+table.dashTable tr:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+table.dashTable th {
+  background-color: #df9f9f;
+}
+ul.topnav li {
+  float: left;
+}
+ul.topnav li a {
+  color: #203344;
+  display: block;
+  font-size: 24px;
+  padding: 14px 16px;
+  text-align: center;
+  text-decoration: none;
+}
+ul.topnav li a:hover:not(.active) {
+  background-color: #f2d9d9;
+}
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+  background-color: #e6b3b3;
+  border: 1px solid #203344;
+}
+ul.topnav li a.active {
+  background-color: #d27979;
+}
+ul.topnav li.right {
+  float: right;
+  border-left: 1px solid #203344;
+}
+.btn {
+  color: #203344;
+  margin: 12px;
+  font-size: 18px;
+  background-color: #cddbe7;
+  border: 1px solid #203344;
+  border-radius: 4px;
+  padding: 8px;
+}
+.btn:hover,
+.btn:focus {
+  background-color: #6993b8;
+  cursor: pointer;
+}
+.container {
+  margin: 5%;
+}
+@media screen and (max-width: 600px) {
+  ul.topnav li.right, 
+  ul.topnav li {float: none;}
+}
+#siteTitle {
+  font-size: 32px;
+  text-align: center;
+  margin: auto;
+  margin-top: 12px;
+  width
+  color: #203344;
+}

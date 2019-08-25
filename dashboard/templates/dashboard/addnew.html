@@ -1,0 +1,61 @@
+{# dashboard/details.html #}
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  {% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+  {% endif %}
+  <h2>Party Info</h2>
+
+  <form action="{% url 'dashboard:add' %}" method="POST">
+    {% csrf_token %}
+    <label for="description">Party Description</label><br>
+    <input type="text" name="description" id="description"><br>
+    
+    <label for="street">Street</label><br>
+    <input type="text" name="street" id="street"><br>
+
+    <label for="city">City</label><br>
+    <input type="text" name="city" id="city"><br>
+
+    <label for="state">State</label><br>
+    <input type="text" name="state" id="state"><br>
+
+    <label for="zip_code">Zip Code</label><br>
+    <input type="text" name="zip_code" id="zip_code"><br>
+
+    <label for="phone_number">Phone #</label><br>
+    <input type="text" name="phone_number" id="phone_number"><br>
+
+    <h2>Party Guests</h2>
+
+    <button type="button" class="btn" name="addGuestBtn" id="addGuestBtn"
+      onclick="addGuestField()">Add new Guest</button><br>
+
+    <div id="guestsForm">
+      <label for="name">Names</label><br>
+      <input type="text" name="name"><br>
+    </div><br>
+
+    <button type="submit" class="btn">Submit</button>
+    <button type="button" class="btn" 
+      onclick="location.href='{% url 'dashboard:index' %}'">
+      Cancel</button>
+  </form>
+
+</div>
+<script type="text/javascript">
+  function addGuestField() {
+
+    const guestsForm = document.getElementById('guestsForm');
+    let newInput = document.createElement('input');
+    let br = document.createElement('br');
+    newInput.setAttribute('type', 'text');
+    newInput.setAttribute('name', 'name');
+
+    document.getElementById('guestsForm').appendChild(newInput);
+    document.getElementById('guestsForm').appendChild(br);
+
+  }
+</script>
+{% endblock %}

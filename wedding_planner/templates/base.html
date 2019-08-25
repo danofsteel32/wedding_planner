@@ -1,0 +1,35 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=.6">
+  <meta name="author" content="Dan Davis">
+  <title>{% block title %}Wedding{% endblock %}</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+  <div id="siteTitle">
+    Dan & Em
+  </div>
+  <div id="siteLinks">
+    <ul class="topnav">
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="#">RSVP</a></li>
+      <li><a href="{% url 'gifts' %}">Gifts</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'dashboard:index' %}">Dashboard</a></li>
+      <li><a href="{% url 'admin:index' %}">Admin</a></li>
+      <li class="right"><a class="active" href="{% url 'logout' %}">logout</a></li>
+      {% else %}
+      <li class="right"><a class="active" href="{% url 'login' %}">login</a></li>
+      {% endif %}
+    </ul> 
+  </div>
+  {% block content %}
+  {% endblock %}
+</body>
+
+</html>

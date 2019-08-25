@@ -1,0 +1,22 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Gifts{% endblock %}
+
+{% block content %}
+<div class="container">
+
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+{% endif %}
+
+  <div id="giftsPage">
+    <h2>Gifts</h2>
+    <p>Of course you don't have to get us a gift, but if you want to we would be very grateful.
+    A cash gift would go a long way to helping us pay for the wedding.</p>
+    <h2>Registry</h2>
+    <p>We are not doing a registry.</p>  
+  </div>
+</div>
+
+{% endblock %}
